@@ -1,0 +1,25 @@
+/*
+If문 문법
+If(참, 거짓을 판단할 수 있는 조검){
+  ..실행코드;
+  ..실행코드;
+  ..실행코드;
+}
+*/
+
+public class If_1 {
+  public static void main(String[] args) {
+
+    System.out.println("프로그램 시작");
+    int num = 6;
+    if(num<5){
+      System.out.println(1);
+
+
+    }
+
+
+
+    System.out.println("프로그램 종료");
+  }
+}

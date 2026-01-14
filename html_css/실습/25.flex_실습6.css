@@ -1,0 +1,43 @@
+body{
+  background-color: #caf4ff;
+}
+.container{
+  width: 350px;
+  height: 500px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.whitebox{
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
+  
+}
+.whitebox:hover{
+  scale: 1.2;
+  transition: all 1s;
+  
+}
+
+img{
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+  border-radius: 50%;
+  
+}
+.flex{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.flex>div>p:first-child{
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.flex>div>p:last-child{
+  color: gray;
+}

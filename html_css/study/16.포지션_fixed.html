@@ -1,0 +1,49 @@
+<!-- 
+    position 속성 : 태그(요소)의 배치방식을 지정하는 속성
+    속성값 : static(default,기본값), absolute, relative, fixed
+    absolute : 요소의 배치를 x,y 좌표의 절대값으로 지정
+    fixed : absolute와 동일함 + 스크롤에 영향 받지 않음
+    relative : 기준 위치에서 상대적으로 위치를 지정
+
+    position 속성을 변경하면 반드시 top, left, right, bottom 속성도 변경해야함
+    top, left, right, bottom은 떨어진 정도를 나타냄.
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    p{
+      font-size: 2rem;
+      letter-spacing: 10px;
+      line-height: 70px;
+    }
+    /* 아이콘 디자인은 span으로 감싸서 글자취급 */
+    span{
+      border: 1px solid lightgray;
+      padding: 16px;
+      font-size: 2rem;
+      color: red;
+      border-radius: 50%;
+      background-color: lightgray;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h2>position : fixed</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit perspiciatis eum excepturi rem natus, temporibus incidunt itaque vel quas nobis est, assumenda quaerat nemo cupiditate quo officiis, praesentium distinctio! Unde odio modi nisi asperiores quasi velit quae autem voluptas in assumenda fuga, beatae sequi omnis excepturi, ea suscipit consequuntur libero molestiae, aspernatur voluptatibus eveniet sint laborum! Magnam, dolores provident? Cupiditate perferendis autem, quaerat aliquam quas fugiat explicabo maxime? Minus cum corporis, at odit, voluptatibus exercitationem dolore architecto repudiandae illum voluptates eaque minima, quaerat dolorum odio totam modi nihil assumenda aliquam fugiat dolores laboriosam! Officiis obcaecati cupiditate, deserunt esse aliquid consequuntur.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure laudantium asperiores nulla, labore provident tempore eos in. Reprehenderit ea doloribus quaerat. Quae ullam magnam quasi neque doloremque aut facere.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, dolorem quod! Ipsum veritatis quis recusandae ullam, quaerat quo delectus iste officiis eligendi autem ea facere ipsa quidem corrupti praesentium porro molestias eos culpa, sapiente unde commodi. Totam tempora sit delectus placeat quibusdam reprehenderit laborum atque dolore mollitia, soluta dolores maxime dicta voluptates sint cupiditate. Modi laboriosam, numquam suscipit sapiente error quos, consequuntur consectetur doloremque fugiat laborum ut mollitia delectus nam. Impedit, similique officiis obcaecati tempore omnis incidunt quibusdam neque quo! Nemo consectetur dicta quaerat suscipit illum atque molestiae non itaque consequuntur assumenda modi voluptatum velit, eveniet inventore repudiandae illo? Autem?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur expedita atque accusamus, quo, quos delectus eligendi esse quis in vero omnis explicabo nostrum aut facere odit dicta. Placeat dolores fugiat quos perspiciatis maxime, eos officiis delectus doloremque debitis commodi quasi nihil corrupti hic illum harum doloribus repellat. Quisquam, itaque tempore nulla ab quae impedit? Enim perspiciatis recusandae quod ea consectetur fugit. Sequi consequatur nostrum exercitationem temporibus nemo optio ratione earum pariatur soluta quidem libero, illum veniam omnis. Autem facilis rem atque reprehenderit, aliquam architecto necessitatibus velit, voluptas voluptate, quas sint. Dignissimos quod necessitatibus aut officia aperiam ab cum eligendi corrupti incidunt consequuntur minima temporibus repellat porro dolores, doloremque nostrum omnis officiis alias, debitis laborum nihil eum architecto at qui? Sed esse doloribus impedit eveniet assumenda ab eaque quam sint laudantium, sapiente beatae quaerat tempore tenetur, exercitationem nam vel deserunt quia culpa et. Voluptates, quos earum, harum fugit pariatur repellendus odit placeat illum incidunt nihil possimus quaerat dolore aliquam dolores perspiciatis cum quia amet deserunt. Accusamus blanditiis natus iste illum nam libero, optio, neque culpa inventore sit ullam veniam soluta incidunt fugit iusto praesentium repudiandae corrupti? Culpa accusamus quae nam consequuntur ipsam. Nemo placeat temporibus quidem natus nobis earum voluptates consequatur culpa ducimus ab provident minima deserunt dicta tenetur, dolorum possimus, voluptas maxime deleniti ut magnam porro aut est. Vero veritatis ut dolor corrupti eum adipisci odit aperiam quia, et cupiditate hic. Voluptatum, deleniti dolor cumque impedit pariatur, ratione officia dicta, suscipit quia nam libero fuga porro nemo! Ducimus doloribus quaerat ipsam suscipit amet deleniti tempore dolore aspernatur autem. Ullam optio vitae deserunt, debitis distinctio tempora quae nostrum dolore. Accusantium iure unde minus consequuntur nemo, ducimus culpa hic deleniti dolorum sunt voluptates et fugit recusandae nostrum repudiandae quis vel. Odit itaque quod accusamus iusto ab iure animi assumenda pariatur, numquam repudiandae!
+  </p>
+  <span><i class="bi bi-airplane-engines"></i></span>
+</body>
+</html>

@@ -1,0 +1,90 @@
+body{
+  background-color: bisque;
+}
+.container{
+  height: 350px;
+  background-color: white;
+  box-shadow: 5px 5px 30px 5px;
+  margin: 50px auto;
+  width: 800px;
+  border: 1px solid gray;
+}
+.head{
+  padding: 30px 20px 0px 20px;
+}
+
+.main{
+  display: flex;
+
+}
+.input{
+  width: 350px;
+  height: 220px;
+  background-color: #eeeeee;
+  border-radius: 10px;
+  margin: 25px;
+}
+.input p{
+  font-weight: 900;
+  margin: 15px 0px 5px 10px;
+}
+.input input[type="text"],[type="password"]{
+  width: 330px;
+  margin: 0px 10px 0px 10px ;
+  padding: 5px;
+  border: none;
+}
+.input input[type="checkbox"]{
+  margin: 15px 0px 15px 10px;
+  
+}
+.input span{
+  font-weight: 900;
+  margin: 15px 0px 15px 0px;
+}
+.input input:last-child{
+  margin: 0px 0px 10px 10px;
+  padding: 5px 25px;
+  background-color: #f17d81;
+  border: none;
+  color: white;
+  border-radius: 6px;
+}
+
+
+.p{
+  width: 350px;
+  height: 200px;
+  margin: 25px;
+}
+.tkdtp{
+  text-align: center;
+}
+.p p{
+  margin-bottom: 5px;
+}
+.p p:first-child{
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+.p i{
+  color: green;
+}
+.p input{
+  padding: 5px 80px;
+  margin-bottom: 5px;
+  text-align: center;
+  background-color: #87cefa;
+  border-radius: 8px;
+  color: white;  
+  border: none;
+
+}
+.p p:nth-child(6){
+  text-align: center;
+  color: green;
+}
+.p p:last-child{
+  text-align: center;
+  color: green;
+}

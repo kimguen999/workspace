@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 마진,패딩 숫자 하나 : 상하좌우 */
+    .div-1{
+      border: 1px solid black;
+      margin: 50px;
+      padding: 50px;
+    }
+    /* 마진,패딩 숫자 둘 : 상하 좌우 */
+    /* 마진이 겹칠 경우 큰것만 적용 */
+    .div-2{
+      border: 1px solid black;
+      margin: 20px 70px;
+      padding: 20px 70px;
+    }
+    /* 마진,패딩 숫자 넷 : 12시 부터 시계방향 */
+    .div-3{
+      border: 1px solid black;
+      margin: 10px 20px 30px 40px;
+      padding: 10px 20px 30px 40px;
+    }
+    .div-4{
+      border: 1px solid black;
+      margin-top: 100px;
+      margin-bottom: 50px;
+      padding-top: 30px;
+      padding-left: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h2>마진(margin, 바깥여백)과 패딩(padding, 안쪽여백)</h2>
+  <div class="div-1">
+    div1
+  </div>
+  
+  <div class="div-2">
+    div2
+  </div>
+  <div class="div-3">
+    div3
+  </div>
+  <div class="div-4">
+    div4
+  </div>
+  <hr>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      border: 0px solid black;
+      width: 700px;
+      margin: auto;
+    }
+    .table-div{
+      border: 0px dashed red;
+    }
+    .btn-div{
+      border: 0px solid blue;
+      text-align: center;
+      margin-top: 20px;
+    }
+    table{
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    tr{
+      border: 1px solid black;
+    }
+    td{
+      border: 1px solid black;
+    }
+    .title-td{
+      text-align: center;
+      background-color: skyblue;
+    }
+    .red{
+      color: red;
+      font-style: italic;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 테이블영역 -->
+    <div class="table-div">
+      <table>
+        <tbody>
+          <tr>
+            <td class="title-td" colspan="2">
+              <span><span class="red">(*필수입력)</span>회원 기본 정보</span>
+              
+            </td>
+          </tr>
+          <tr>
+            <td><span><span class="red">*</span>아이디:</span></td>
+            <td>
+              <input type="text" minlength="4" maxlength="12" placeholder="4~12자">
+              <input type="button" value="아이디 검사">
+            </td>
+          </tr>
+          <tr>
+            <td><span><span class="red">*</span>비밀번호:</span></td>
+            <td>
+              <input type="password" minlength="4" maxlength="12">
+              <span>4~12자의 영문 대소문자와 숫자로만 입력</span>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="red">*</span>비밀번호확인:</td>
+            <td>
+              <div>
+                <input type="number" minlength="4" maxlength="12">
+                <input type="button" value="비밀번호 확인">
+              </div>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- 버튼영역 -->
+    <div class="btn-div">
+      <input type="button" value="회원 가입">
+      <input type="button" value="다시 입력">
+
+    </div>
+  </div>
+</body>
+</html>

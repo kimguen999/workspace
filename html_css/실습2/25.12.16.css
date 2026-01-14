@@ -1,0 +1,98 @@
+/* opacity:0~1
+1:완전선명
+0:완전투명 */
+
+body{
+  /* background-color: black;
+  background-color: #000000;
+
+  background-color: rgb(0, 0, 0); */
+  /* rgb(빨, 초, 파) 0~255 */
+
+  /* background-color: rgba(0,0,0,0.2); */
+  /* rgba(빨, 초, 파, 알파) 알파 : 투명도 */
+}
+img{
+  width: 200px;
+}
+.teduri{
+  border: 10px solid #778899;
+  margin: 30px auto;
+  width: 850px;
+}
+
+.container{
+  /* width: 800px; */
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 5px 10px;
+}
+.head{
+  text-align: center;
+  
+}
+.head p:nth-child(1){
+  color: white;
+  background-color: #ffb6c1;
+  border-radius: 20px;
+  text-align: center;
+  display: inline-flex;
+  padding: 3px 15px;
+  margin: 10px;
+  font-size: 0.8rem;
+}
+.head p:nth-child(2){
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: -10px;
+}
+.head p:nth-child(2)>span{
+  color: #abd3fa;
+}
+.head p:nth-child(3){
+  font-size: 2rem;
+  font-weight: bold;
+}
+.head p:nth-child(4){
+  font-size: 0.9rem;
+  margin: 5px;
+}
+.head p:nth-child(5){
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+.word-container{
+  display: grid;
+  /* width: 850px; */
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-around;
+}
+.container>div>div{
+  /* width: 150px; */
+  /* margin: 50px 10px; */
+  
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 80px 0px;
+  
+}
+.container>div>div>p{
+  font-size: 0.8rem;
+  color: white;
+  text-align: center;
+  padding: 4px;
+}
+.container>div>div>p:first-child{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.container>div>div:hover{
+  background-color: rgba(0,0,0,0.3);
+}
+.container>div{
+  position: relative;
+
+}
+
+

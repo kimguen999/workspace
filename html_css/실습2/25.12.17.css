@@ -1,0 +1,159 @@
+/* 너비 : 1200px */
+.container{
+  width: 1200px;
+  margin: 30px auto;
+  height: 700px;
+}
+.head{
+  background-color: #0c51a6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:15%;
+}
+
+.head>div:nth-child(2){
+  display: flex;
+  justify-content: space-around;
+  width: 55%;
+  background-color: #0a4288;
+  height: 55%;
+  align-items: center;
+}
+.head p{
+  color: white;
+}
+.head>div:nth-child(1)>p{
+  font-size: 2rem;
+  padding-left: 30px;
+  font-weight: bold;
+}
+.head>div:nth-child(2)>p{
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.intro{
+  height: 42.6%;
+  position: relative;
+}
+.intro>img{
+  display: block;
+  object-fit: cover;
+}
+.intro>div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px 70px;
+
+}
+.intro p{
+  color: white;
+}
+.intro>div>p:nth-child(1){
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+.intro>div>p:nth-child(2){
+  text-align: center;
+  padding: 10px 0px;
+}
+.main{
+  height: 28.6%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.gongji{
+  background-color: #e5f1ff;
+  width: 35%;
+  padding:0px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.gongji div{
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.gongji>p{
+  font-size: 1.5rem;
+  font-weight: bolder;
+  padding: 10px 0px;
+}
+.gongji>div>p>a{
+  text-decoration: none;
+  color: black;
+}
+.ticket{
+  position: relative;
+  width: 35%;
+}
+.ticket>img{
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+.ticket>div{
+  position: absolute;
+  top: 60px;
+  left: 50px;
+  text-align: center;
+}
+.ticket>div>p{
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.ticket>div>button{
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: #406d96;
+  border-color: #406d96;
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+}
+.photo{
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.last{
+  height: 15%;
+  display: flex;
+  background-color: #e7e7e7;
+  align-items: center;
+}
+.last>div{
+  width: 80%;
+  
+}
+.last>div>div{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.last>p{
+  color: #808080;
+  margin-left: 30px;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.last>div>div>p{
+  padding: 0px 8px;
+}
+.last>div>p{
+  text-align: center;
+}
+.last>p{
+  width: 20%;
+}
+.last a{
+  text-decoration: none;
+  color: black;
+}

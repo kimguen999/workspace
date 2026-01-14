@@ -1,0 +1,112 @@
+body{
+  background-color: #e0ffff;
+}
+
+.container{
+  margin: 30px auto;
+  width: 300px;
+  height: 420px;
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.picture{
+  width: 300px;
+  
+}
+.picture :hover{
+  scale: 1.2;
+  transition: all 1s;
+  
+
+}
+img[src="../img/house.jpg"]{
+  width: 300px;
+  /* border-radius: 20px; */
+}
+img[src="../img/face-01.jpg"]{
+  width: 40px;
+  border-radius: 50%;
+}
+.picture>i{
+  position: absolute;
+  top: 45px;
+  right: 150px;
+  color: white;
+}
+.price{
+  padding: 0px 8px;
+}
+.price>p:first-child{
+  font-weight: bolder;
+  font-size: 0.9rem;
+}
+.price>p:nth-child(2){
+  font-weight: bold;
+  font-size: 1.7rem;
+  color: #ffa500;
+}
+.price>p:nth-child(3){
+  font-size: 0.9rem;
+  color: #919fa1;
+}
+hr{
+  /* border-color: #89959f; */
+  border: 1px solid #89959f;
+}
+.bed{
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 10px 8px;
+}
+.bed>i:nth-child(3){
+  margin-left: 30px;
+}
+.real{
+  padding: 0px 10px;
+}
+.sandy{
+  display: flex;
+  padding: 15px 10px;
+  justify-content: space-between;
+}
+.sandy2{
+  display: flex;
+}
+button{
+  color: white;
+  background-color: #32cd32;
+  border-radius: 6px;
+  padding: 7px 20px;
+  border-color: #32cd32;
+}
+.sandy2>div:last-child{
+  margin-left: 10px;
+}
+.sandy2>div>p:first-child{
+  font-size: 0.8rem;
+}
+.sandy2>div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sandy2>div>p:last-child{
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: lightgrey;
+}
+/* 폰트 가져오기 */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* 폰트 적용하는법 */
+/* *{
+  font-family: "Montserrat", sans-seri
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  font-family: "Montserrat", sans-serif;
+}

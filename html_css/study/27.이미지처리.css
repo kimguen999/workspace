@@ -1,0 +1,28 @@
+div{
+  border: 3px solid red;
+  margin: 50px;
+  width: 500px;
+  height: 600px;
+}
+/* 이미지에 블록속성을 넣으면 밑에 작은 여백이 사라진다 */
+img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* object-fit을 쓰면 이미지의 비율이 깨지지 않음 */
+/* contain : 짤리지 않고 비율 유지, 최대 크기 */
+.img1{
+  object-fit: contain;
+}
+/* cover : 짤리지만 영역 전체를 덮음, 비율 유지 */
+.img2{
+  object-fit: cover;
+  /* object-position : 이미지의 보여주고 싶은 영역 조절,
+  좌우 상하 (50% 50% 가 중앙)
+  (left top 이런것도 가능) */
+  object-position: right bottom;
+
+}

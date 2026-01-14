@@ -1,0 +1,125 @@
+body{
+  background-color: beige;
+}
+.container{
+  padding: 30px 30px;
+  margin: 30px auto;
+  width: 1200px;
+  height: 1230px;
+  background-color: white;
+  box-shadow: 5px 5px 30px 2px black;
+}
+table{
+  border: 1px solid #dddddd;
+  width: 100%;
+}
+tr>td:first-child{
+  width: 17%;
+}
+td{
+  border: 1px solid #dddddd;
+}
+tr>td:first-child{
+  padding: 10px 20px;
+  background-color: #f8f9f6;
+}
+tr>td:nth-child(2){
+  padding: 10px;
+}
+
+input{
+  padding: 5px;
+  
+}
+input[type="text"],[type="password"],[type="number"]{
+  border-color: lightgray;
+}
+tr>td:first-child>span>span{
+  color: red;
+}
+.add{
+  display: flex;
+  flex-direction: column;
+}
+.add>div{
+  margin: 3px;
+}
+.add>div:nth-child(1)>input{
+  width: 80px;
+}
+.add>div:nth-child(1)>button{
+  padding: 0px 15px;
+  margin-left: 10px;
+  background-color: white;
+  border-color: lightgray;
+}
+.add>div:nth-child(2)>input{
+  width: 400px;
+}
+.add>div:nth-child(3)>input{
+  width: 400px;
+}
+.add>div:first-child{
+  display: flex;
+}
+.infor1{
+  display: flex;
+  justify-content: space-between;
+}
+.infor1>p>span{
+  color: red;
+}
+.join>table{
+  margin: 20px 0px 60px 0px;
+}
+.infor>table{
+  margin: 20px 0px 60px 0px;
+}
+.infor2>table{
+  margin: 20px 0px 50px 0px;
+}
+.call{
+  display: flex;
+}
+.call>select{
+  padding: 0px 20px 0px 0px;
+}
+.call>input{
+  width: 80px;
+}
+.call>span{
+  margin: 0px 7px;
+}
+.phone{
+  display: flex;
+}
+.phone>select{
+  padding: 0px 20px 0px 0px;
+}
+.phone>input{
+  width: 80px;
+}
+.phone>span{
+  margin: 0px 7px;
+}
+.infor p{
+  font-size: 0.85rem;
+}
+.up>span{
+  margin: 0px 10px 0px -8px;
+}
+.down>span{
+  margin: 0px 10px 0px -8px;
+}
+.birth>input:first-child{
+  width: 90px;
+}
+.birth>input:nth-child(3){
+  width: 50px;
+}
+.birth>input:nth-child(5){
+  width: 50px;
+}
+.birth>span:nth-child(6){
+  margin-right: 20px;
+}

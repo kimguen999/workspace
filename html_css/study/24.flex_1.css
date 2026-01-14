@@ -1,0 +1,28 @@
+.container1{
+  border: 1px solid #000;
+  display: flex;
+  width: 300px;
+  height: 100px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+.container1 .item{
+  border: 1px solid red;
+  width: 20%;
+}
+.container2{
+  border: 1px solid #000;
+  display: flex;
+  width: 300px;
+  height: 200px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.container2 .item{
+  border: 1px solid red;
+}
+.container2 div:nth-child(2){
+  align-self: self-end;
+}

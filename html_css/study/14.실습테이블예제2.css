@@ -1,0 +1,36 @@
+.container{
+  border: 0px solid black;
+  width: 600px;
+  margin: 50px auto;
+}
+table{
+  border: 0px solid black;
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+thead{
+  text-align: center;
+}
+tbody td:nth-child(1){
+  text-align: center;
+}
+tbody td:nth-child(2){
+  text-align: center;
+}
+tbody td:last-child{
+  text-align: center;
+}
+thead>tr{
+  border-top: 2px solid black;
+  border-bottom: 1px solid gray;
+}
+tbody>tr{
+  border-bottom: 1px solid gray;
+}
+td{
+  padding: 10px;
+}
+tbody tr:nth-child(even){
+  background-color: floralwhite;
+}

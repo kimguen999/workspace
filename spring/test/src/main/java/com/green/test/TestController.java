@@ -1,0 +1,36 @@
+package com.green.test;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// HTML로 데이터를 전송하는 클래스
+@RestController
+public class TestController {
+
+  @GetMapping("/test1")
+  public String aaa(){
+    return "java";
+  }
+
+  @GetMapping("/test2")
+  public int bbb(){
+    return 10;
+  }
+
+  @GetMapping("/test3")
+  public Student ccc(){
+    Student s = new Student("John Wick", 40);
+    return s;
+  }
+  @GetMapping("/test4")
+  public  List<Student> ddd(){
+    List<Student> stuList = new ArrayList<>();
+    stuList.add(new Student("Kim", 30));
+    stuList.add(new Student("Kim", 30));
+    stuList.add(new Student("Kim", 30));
+    return stuList;
+  }
+}
