@@ -1,0 +1,33 @@
+.test4_container{
+  display: flex;  
+  gap: 20px;
+}
+
+
+.test4_container>div{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background-color: crimson;
+  line-height: 100px;
+  color: white;
+  font-size: 2rem;
+  
+}
+
+.test4_container2{
+  display: flex;  
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.test4_container2>div{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background-color: cyan;
+  line-height: 100px;
+  color: black;
+  font-size: 2rem;
+
+}
