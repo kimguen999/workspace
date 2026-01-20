@@ -11,6 +11,7 @@ import java.util.List;
 // R : READ -> 데이터 조회 (전체 조회, 특정 데이터만 조회) (GET)
 // U : UPDATE -> 데이터 수정
 // D : DELETE -> 데이터 삭제 (DELETE)
+
 @RestController
 // 모든 문법이 Rest에 맞춰저있으므로 Restful이라부름 => API 적용하면 Restful API라 부름
 //@RequestMapping("/boards") // 해당 컨트롤러의 URL을 전부 "/boards"로 시작한다
