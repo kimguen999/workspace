@@ -45,31 +45,32 @@ public class EmpController {
     empList.add(emp);
     return empList;
   }
-
-  //{
-  //    "empNum" : 106,
-  //    "empName" : "Santino D'Antonio",
-  //    "empPart" : "The High Table",
-  //    "empSalary" : 150000,
-  //    "empRank" : "부회장"
-  //}
+//
+//  {
+//      "empNum" : 106,
+//      "empName" : "Santino D'Antonio",
+//      "empPart" : "The High Table",
+//      "empSalary" : 150000,
+//      "empRank" : "부회장"
+//  }
 
   @DeleteMapping("/{empNum}")
-  public List<Emp> deleteOneEmp(@PathVariable("empNum") int empNum){
+  public String deleteOneEmp(@PathVariable("empNum") int empNum){
     for (int i = 0; i<empList.size(); i++){
       if (empList.get(i).getEmpNum() == empNum){
         empList.remove(i);
         break;
       }
     }
-    return empList;
+    return "삭제 완료";
   }
-  @PutMapping("/{empNum}")
+  @PutMapping("/{empNum}")  //"/{empNum}" -> URL파라미터
   public List<Emp> updateOneEmp(@PathVariable("empNum") int empNum, @RequestBody Emp emp){
     for (int i = 0; i<empList.size(); i++){
       if (empList.get(i).getEmpNum() == empNum){
         empList.get(i).setEmpSalary(emp.getEmpSalary());
         empList.get(i).setEmpPart(emp.getEmpPart());
+        System.out.println(emp);
       }
     }
     return empList;
