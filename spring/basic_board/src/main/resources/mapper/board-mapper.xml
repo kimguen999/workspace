@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.basic_board.mapper.BoardMapper">
+
+    <resultMap id="board" type="com.green.basic_board.dto.BoardDTO">
+        <id column="BOARD_NUM"          property="boardNum"/>
+        <result column="TITLE"          property="title"/>
+        <result column="WRITER"         property="writer"/>
+        <result column="CONTENT"        property="content"/>
+        <result column="READ_CNT"       property="readCnt"/>
+        <result column="CREATE_DATE"    property="createDate"/>
+    </resultMap>
+
+    <select id="test1" resultType="String"> <!--실행 결과가 문자열이므로 타입 스트링-->
+        SELECT TITLE
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM = 1
+    </select>
+
+    <select id="test2" resultType="int">  <!--실행 결과가 정수배열이지만 한행만 보면 정수이므로 타입 인트-->
+        SELECT BOARD_NUM
+        FROM BASIC_BOARD
+
+    </select>
+
+    <select id="test3" resultMap="board">  <!--정수, 문자열 섞여있어서 이러한 자료형은 없으므로, class를 만들어야 하니까 resultMap사용-->
+        SELECT BOARD_NUM
+            ,TITLE
+            ,CONTENT
+            ,WRITER
+            ,CREATE_DATE
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM = #{boardNum} <!--변수일때는 #{}-->
+    </select>
+
+    <select id="test4" resultMap="board">
+        SELECT BOARD_NUM
+            ,TITLE
+            ,WRITER
+            ,CREATE_DATE
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM &gt; #{boardNum}
+        AND READ_CNT &lt; #{readCnt}
+    </select>
+
+    <select id="test5" resultMap="board">
+        SELECT *
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM &gt; #{boardNum}
+        AND READ_CNT &lt; #{readCnt}
+    </select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
