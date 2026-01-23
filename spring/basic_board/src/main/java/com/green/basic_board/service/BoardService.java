@@ -15,11 +15,10 @@ public class BoardService {
   // 쿼리 실행 추상메서드가 존재하는 객체를 선언
   private BoardMapper boardMapper;  // 보드매퍼 멤버변수
   // Mapper interface에 만든 test1() 추상메서드를 실행사는 메서드
-  // 생성자 의존성 주입 (위에 선언만 되어있으므로
-  @Autowired
+  // 생성자 의존성 주입 (위에 선언만 되어있으므로)
+  @Autowired //매개변수로 들어올수 있는 것을 자동으로 연결
   public BoardService(BoardMapper boardMapper){
     this.boardMapper = boardMapper;
-
   }
   // Mapper interface에 정의된 test1()를 실행할 메서드
   public String runTest1(){
@@ -51,8 +50,19 @@ public class BoardService {
     return result;
   }
 
+  public void regBoard(BoardDTO boardDTO){
+    boardMapper.insertBoard(boardDTO);
+  }
 
+  public int delBoard(int boardNum){
+    int result = boardMapper.deleteBoard(boardNum);
+    return result;
+  }
 
+  public void upBoard(BoardDTO boardDTO){
+    boardMapper.updateBoard(boardDTO);
+
+  }
 
 }
 

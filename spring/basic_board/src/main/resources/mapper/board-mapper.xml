@@ -53,6 +53,38 @@
         AND READ_CNT &lt; #{readCnt}
     </select>
 
+    <!--insert는 resultMap,Type필요없음-->
+    <insert id="insertBoard">
+        INSERT INTO BASIC_BOARD (
+            TITLE
+            , WRITER
+            , CONTENT
+        ) VALUES (
+            #{title}
+            , #{writer}
+            , #{content}
+        )
+    </insert>
+
+    <delete id="deleteBoard">
+        DELETE FROM BASIC_BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
+
+    <update id="updateBoard">
+        UPDATE BASIC_BOARD SET
+            TITLE = #{title}
+            , WRITER = #{writer}
+            , CONTENT = #{content}
+         WHERE
+            BOARD_NUM = #{boardNum}
+
+    </update>
+
+
+
+
+
 </mapper>
 
 

@@ -18,4 +18,12 @@ public interface BoardMapper {
   BoardDTO test3(int boardNum); // resultMap일때는 ~DTO사용, 변수일경우 매개변수사용
   List<BoardDTO> test4(BoardDTO boardDTO); // 변수가 2개일때는 변수가 포함된 클래스 자료형을 써버리면된다.
   List<BoardDTO> test5(int boardNum, int readCnt);
+  // select : 조회되는 데이터에 따라 리턴 타입이 달라짐
+  // insert, delete, update : 리턴타입이 정해져있음, (void or int)
+  //                          ㄴ> 삽입,수정,지워지는 '데이터의 수'라서 int로 리턴
+  //                          ㄴ> 리턴이 int라는 것의 의미는 쿼리 실행결과 영향 받는 행의 갯수
+  void insertBoard(BoardDTO boardDTO);
+  int deleteBoard(int boardNum);
+  // int deleteBoard(BoardDTO boardDTO);
+  void updateBoard(BoardDTO boardDTO);
 }
