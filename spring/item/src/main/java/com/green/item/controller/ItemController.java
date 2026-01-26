@@ -32,10 +32,35 @@ public class ItemController {
     return result;
   }
 
+  // 상품 상세 정보 조회 api
   @GetMapping("/select/{itemNum}")
-  public ItemDTO selectItem2(@PathVariable int itemNum){
+  public ItemDTO selectItem2(@PathVariable("itemNum") int itemNum){
     ItemDTO result = itemService.runselect2(itemNum);
+    System.out.println(result);
     return result;
+  }
+
+  // 상품 수정 정보 api
+  @PutMapping("/update/{itemNum}")
+  public ItemDTO updateItem(
+      @RequestBody ItemDTO itemDTO,
+      @PathVariable("itemNum") int itemNum){
+    itemDTO.setItemNum(itemNum);
+    ItemDTO result = itemService.update(itemDTO);
+    System.out.println(itemNum);
+    System.out.println(itemDTO);
+    return result;
+  }
+//  @PutMapping("/update/{itemNum}")
+//  public void updateItem(
+//      @RequestBody ItemDTO itemDTO,
+//      @PathVariable("itemNum") int itemNum){
+//    itemDTO.setItemNum(itemNum);
+//    itemService.update(itemDTO);
+//  }
+  @DeleteMapping("/delete/{itemNum}")
+  public void deleteItem(@PathVariable("itemNum") int itemNum){
+    itemService.delete(itemNum);
   }
 
 }

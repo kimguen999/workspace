@@ -40,6 +40,22 @@
         WHERE ITEM_NUM = #{itemNum}
     </select>
 
+    <!--상품 수정 쿼리-->
+    <update id="updateItem">
+        UPDATE ITEM
+        SET
+        ITEM_NAME = #{itemName}
+        , ITEM_PRICE = #{itemPrice}
+        WHERE
+        ITEM_NUM = #{itemNum}
+    </update>
+
+    <!--상품 삭제 쿼리-->
+    <delete id="deleteItem">
+        DELETE FROM ITEM
+        WHERE ITEM_NUM = #{itemNum}
+    </delete>
+
 
 </mapper>
 

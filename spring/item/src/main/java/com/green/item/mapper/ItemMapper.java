@@ -12,5 +12,15 @@ public interface ItemMapper {
   void postItem(ItemDTO itemDTO);
   //상품 조회 쿼리 실행 메서드
   List<ItemDTO> selectItem();
+  // 상품 상세 조회 쿼리 실행 메서드
   ItemDTO selectItem2(int itemNum);
+  // 상품 수정 쿼리 실행 메서드
+  int updateItem(ItemDTO itemDTO);
+  // void updateItem(ItemDTO itemDTO);
+  // 상품 삭제 쿼리 실행 메서드
+  void deleteItem(int itemNum);
+
+
+
+
 }
