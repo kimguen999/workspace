@@ -7,10 +7,23 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// 서비스 초기 세팅
+// 1. @Service
+// 2. @Autowired
+// 3. private A~Mapper a~Mapper;  의존성 주입
+// 4. public 전체자료형 원하는서비스메서드명(){
+//      전체자료형 result = a~Mapper.추상메서드명;
+//      return result;
+//    {
+//    insert, update, delete의 경우 리턴타입은 void or int
+
+
+
 // Service 클래스 : 프로젝트에서 핵심 기능을 구현한 클래스
+//                인터페이스에서 선언한 추상메서드를 샐행할 메서드 구현
 // 지금은 DB기능(조회,등록,삭제,수정)을 핵심기능이라 생각
 
-@Service // 객체 생성 어노테이션
+@Service // 객체 생성 + 핵심기능(DB)이 구현된 클래스라는 것을 알리는 역할
 public class BoardService {
   // 쿼리 실행 추상메서드가 존재하는 객체를 선언
   private BoardMapper boardMapper;  // 보드매퍼 멤버변수

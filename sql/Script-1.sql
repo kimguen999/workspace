@@ -1,0 +1,62 @@
+
+# 게시판 테이블
+CREATE TABLE BASIC_BOARD(
+# AUTO_INCREMENT : 하나씩 증가
+	BOARD_NUM INT PRIMARY KEY AUTO_INCREMENT
+	, TITLE VARCHAR(30)
+	, WRITER VARCHAR(20)
+	, CONTENT VARCHAR(50)
+# DEFAULT : 기본값    DEFAULT 0 : 0을 기본값으로 가지겠다
+	, READ_CNT INT DEFAULT 0
+	, CREATE_DATE DATETIME DEFAULT NOW()
+); 
+
+INSERT INTO BASIC_BOARD (TITLE, WRITER)
+VALUES ('제목1', '작성자1');
+
+
+
+# DROP TABLE 테이블명 : 테이블을 지우는 명령어
+DROP TABLE BASIC_BOARD;
+
+# 확인용
+SELECT 1*2 FROM EMP; # EMP 데이터 개수만큼 나옴
+SELECT 1*2 ;  # 1개만 나옴
+
+# NOW(), SYSDATE() : 현재시간, 시스템시간
+SELECT NOW(), SYSDATE();
+
+INSERT INTO BASIC_BOARD (BOARD_NUM, TITLE,  WRITER, CONTENT)
+VALUES (1, '첫번째 글', '김자바', '첫번째내용');
+INSERT INTO BASIC_BOARD (BOARD_NUM, TITLE,  WRITER, CONTENT)
+VALUES (2, '두번째 글', '이자바', '두번째내용');
+INSERT INTO BASIC_BOARD (BOARD_NUM, TITLE,  WRITER, CONTENT)
+VALUES (3, '세번째 글', '박자바', '세번째내용');
+
+DELETE FROM BASIC_BOARD;
+
+SELECT BOARD_NUM
+            ,TITLE
+            ,CONTENT
+            ,WRITER
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM = 2;
+
+SELECT BOARD_NUM
+            ,TITLE
+            ,WRITER
+            ,CREATE_DATE
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM > 1
+        AND READ_CNT < 10;
+
+SELECT * FROM BASIC_BOARD;
+
+
+
+
+
+
+
+
+

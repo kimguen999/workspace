@@ -8,6 +8,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 
+// 컨트롤러 초기 세팅
+// 1. @RestController
+// 2. private A~Service a~service;
+// 3. @Autowired
+// 4. public A~controller(A~Service a~Service){
+//      this.a~Service = a~Service;
+//    }
+// 5. @getMapping("/~~") or Post, Delete, Put
+//    public 전체자료형 원하는컨트롤러메서드명(){
+//      전체자료형 result = a~Service.서비스메서드명();
+//      return result;
+//    }
+
+
+
 @RestController // 이 클래스가 컨트롤러 한다는 것을 보여주는 역할
 //@RequestMapping("/item") // 모든 url은 '/item'로 시작하겠다
 public class BoardController {

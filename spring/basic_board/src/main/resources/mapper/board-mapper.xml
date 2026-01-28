@@ -5,6 +5,10 @@
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.green.basic_board.mapper.BoardMapper">
 
+<!--  데이터베이스에서 가져올 자료형을 매칭(짝짜꿍)시켜주는 역할(전체데이터X, 하나의 행 데이터O  -->
+<!--  컬럼을 DTO로 가져오겠다.  -->
+<!--  column : 데이터베이스     property : 자바식  -->
+
     <resultMap id="board" type="com.green.basic_board.dto.BoardDTO">
         <id column="BOARD_NUM"          property="boardNum"/>
         <result column="TITLE"          property="title"/>
@@ -13,6 +17,9 @@
         <result column="READ_CNT"       property="readCnt"/>
         <result column="CREATE_DATE"    property="createDate"/>
     </resultMap>
+
+
+    <!--쿼리-->
 
     <select id="test1" resultType="String"> <!--실행 결과가 문자열이므로 타입 스트링-->
         SELECT TITLE
@@ -27,7 +34,7 @@
     </select>
 
     <select id="test3" resultMap="board">  <!--정수, 문자열 섞여있어서 이러한 자료형은 없으므로, class를 만들어야 하니까 resultMap사용-->
-        SELECT BOARD_NUM
+        SELECT BOARD_NUM  <!--PK컬럼은 무조건 조회-->
             ,TITLE
             ,CONTENT
             ,WRITER
