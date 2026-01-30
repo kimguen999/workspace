@@ -4,29 +4,75 @@
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.green.board.mapper.BoardMapper">
-        <resultMap id="board" type="com.green.board.dto.BoardDTO">
-                <id column="BOARD_NUM"          property="boardNum"/>
-                <result column="TITLE"          property="title"/>
-                <result column="WRITER"         property="writer"/>
-                <result column="CONTENT"        property="content"/>
-                <result column="READ_CNT"       property="readCnt"/>
-                <result column="CREATE_DATE"    property="createDate"/>
-        </resultMap>
+    <!--resultMap : 데이터베이스 테이블에서 조회된 데이터를 Spring으로 가져올 자료형을 매칭 -->
+    <resultMap id="board" type="com.green.board.dto.BoardDTO">
+        <id     column="BOARD_NUM"      property="boardNum" />
+        <result column="TITLE"          property="title" />
+        <result column="WRITER"         property="writer" />
+        <result column="CONTENT"        property="content" />
+        <result column="READ_CNT"       property="readCnt" />
+        <result column="CREATE_DATE"    property="createDate" />
+    </resultMap>
+
+    <!--게시글 목록 조회 쿼리-->
+    <!--화면에 보여줄 데이터만 조회, 단, PK컬럼은 무조건 조회-->
+    <!--select 태그는 resultTytpe 혹은 resultMap 속성이 반드시 있어야 함-->
+    <!--resultMap, resultType은 쿼리 실행 결과 조회되는 하나의 행 데이터를 저장할 변수를 지정 -->
+    <!--resultType - 조회되는 하나의 행 데이터를 자바에서 제공하는 자료형으로 받을 수 있을 때 -->
+    <!--resultMap - 조회되는 하나의 행 데이터를 우리가 만든 자료형(CLASS, BoardDTO)으로 받을 때 -->
+    <select id="selectBoardList" resultMap="board">
+        SELECT BOARD_NUM
+            , TITLE
+            , WRITER
+            , CREATE_DATE
+            , READ_CNT
+        FROM BASIC_BOARD
+        ORDER BY CREATE_DATE DESC
+    </select>
+
+    <insert id="insertBoard">
+        INSERT INTO BASIC_BOARD (
+            TITLE
+            , WRITER
+            , CONTENT
+        ) VALUES (
+            #{title}
+            , #{writer}
+            , #{content}
+        )
+    </insert>
+
+    <select id="selectBoard" resultMap="board">
+        SELECT BOARD_NUM
+            , TITLE
+            , CONTENT
+            , WRITER
+            , READ_CNT
+            , CREATE_DATE
+        FROM BASIC_BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
+
+    <update id="updateReadCnt">
+        UPDATE BASIC_BOARD
+        SET READ_CNT = READ_CNT+1
+        WHERE BOARD_NUM = #{boardNum}
+    </update>
+
+    <delete id="deleteBoard">
+        DELETE FROM BASIC_BOARD
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
+
+    <!--게시글 정보 수정 쿼리-->
+    <update id="updateBoard">
+        UPDATE BASIC_BOARD
+        SET TITLE = #{title}
+            , CONTENT = #{content}
+        WHERE BOARD_NUM = #{boardNum}
+    </update>
 
 
-        <!--쿼리-->
-
-        <!--게시글 목록 조회 쿼리-->
-        <select id="selectBoardList" resultMap="board">
-                SELECT
-                        BOARD_NUM
-                        , TITLE
-                        , WRITER
-                        , CREATE_DATE
-                        , READ_CNT
-                FROM BASIC_BOARD
-                ORDER BY CREATE_DATE DESC
-        </select>
 
 
 </mapper>

@@ -3,6 +3,13 @@ package com.green.basic_board.mapper;
 import com.green.basic_board.dto.BoardDTO;
 import org.apache.ibatis.annotations.Mapper;
 
+// Mapper 인터페이스 초기세팅
+// 1. @Mapper
+// 2. 자료형 쿼리이름아무거나(A~DTO a~DTO);  변수 없으면 빈매개변수
+//    insert, delete, update는 자료형 int or void
+
+//
+
 import java.util.List;
 
 // 인터페이스에는 추상 메서드만 올수 있다

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!--
+초기 세팅
+1. <resultMap id = "~" type = "~~.dto.~DTO"><>
+2. <result column = "DB형식"  property = "자바형식"/> PK값은 result 대신 id
+3. 쿼리작성
+    <select id = "쿼리이름아무거나" resultMap or resultType = "resultMap의 id" or "자료형"><>
+    insert, delete, update는 resultMap, resultType 필요없음
+4. mapper namespace 경로 작성
+-->
+
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
 <mapper namespace="com.green.basic_board.mapper.BoardMapper">
@@ -8,7 +18,6 @@
 <!--  데이터베이스에서 가져올 자료형을 매칭(짝짜꿍)시켜주는 역할(전체데이터X, 하나의 행 데이터O  -->
 <!--  컬럼을 DTO로 가져오겠다.  -->
 <!--  column : 데이터베이스     property : 자바식  -->
-
     <resultMap id="board" type="com.green.basic_board.dto.BoardDTO">
         <id column="BOARD_NUM"          property="boardNum"/>
         <result column="TITLE"          property="title"/>
