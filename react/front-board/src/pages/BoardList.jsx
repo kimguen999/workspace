@@ -9,27 +9,60 @@ const BoardList = () => {
 
   //조회한 게시글 목록 데이터를 저장할 state 변수
   const [boardList, setBoardList] = useState([]);
+
+  // 입력한 검색 내용을 저장할 state 변수
+  const [searchData, setSearchData] = useState({
+    searchKeyword : 'TITLE',
+    searchValue : ''
+  });
+
+  // 입력값 저장 함수
+  const handleSearchData = e=>{
+    setSearchData({
+      ...searchData,
+      [e.target.name] : e.target.value
+    })
+  }
+
   
   console.log(boardList);
   //마운트 시 게시글 목록 조회
   useEffect(() => {
-    axios.get('http://localhost:8080/boards')
-    .then(response => {
+    getBoardList();
+  }, []);
+  
+  
+  // 검색버튼 실행 + 게시글 목록 조회 함수
+  const getBoardList = ()=>{
+    axios.get(`http://localhost:8080/boards`, {params : searchData})
+    .then(response=>{
       console.log(response.data);
       setBoardList(response.data);
     })
-    .catch(e => console.log(e));
-  }, []);
+    .catch(e=>console.log(e))
+  }
 
   return (
     <div className={styles.container}>
       <div className={styles.search_div}>
-        <select>
-          <option>제목</option>
-          <option>작성자</option>
+        <select 
+          value={searchData.searchKeyword}
+          name='searchKeyword'
+          onChange={e=>handleSearchData(e)}
+        >
+          <option value='TITLE'>제목</option>
+          <option value='WRITER'>작성자</option>
         </select>
-        <input type="text" />
-        <button type='button'>검색</button>
+        <input 
+          type="text" 
+          value={searchData.searchValue}
+          name='searchValue'
+          onChange={e=>handleSearchData(e)}
+        />
+        <button 
+          type='button'
+          onClick={()=>getBoardList()}
+        >검색</button>
       </div>
       <div className={styles.list_div}>
         <table className={styles.list_table}>

@@ -1,10 +1,12 @@
 package com.green.board.controller;
 
 import com.green.board.dto.BoardDTO;
+import com.green.board.dto.SearchDTO;
 import com.green.board.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //해당 파일을 요청에 대한 응답 기능을 API로 구현
@@ -28,8 +30,10 @@ public class BoardController {
   //게시글 목록 조회 api
   //(GET) localhost:8080/boards
   @GetMapping("")
-  public List<BoardDTO> getBoardList(){
-    List<BoardDTO> list = boardService.getList();
+  public List<BoardDTO> getBoardList(SearchDTO searchDTO){
+    // get이라서 @RequestBody 필요없이 데이터 전달받으면됨
+    System.out.println(searchDTO);
+    List<BoardDTO> list = boardService.getList(searchDTO);
     return list;
   }
 

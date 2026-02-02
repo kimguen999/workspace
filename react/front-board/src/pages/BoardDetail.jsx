@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import ReplyInfo from '../components/ReplyInfo';
+
 
 const BoardDetail = () => {
   const nav = useNavigate();
@@ -86,6 +88,9 @@ const BoardDetail = () => {
           }}
         >삭제</button>
       </div>
+      {/* BoardDetail은 부모 컴포넌트, ReplyInfo는 자식 컴포넌트 */}
+      {/* 글번호를 ReplyInfo에 전달 */}
+      <ReplyInfo boardNum={params.boardNum}/>
     </div>
   )
 }

@@ -20,4 +20,6 @@ public class BoardDTO {
   private String content;
   private int readCnt;
   private LocalDateTime createDate;
+
+
 }
