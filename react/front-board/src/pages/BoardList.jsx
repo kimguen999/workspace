@@ -36,10 +36,15 @@ const BoardList = () => {
   const getBoardList = ()=>{
     axios.get(`http://localhost:8080/boards`, {params : searchData})
     .then(response=>{
-      console.log(response.data);
+      // console.log(response);
+      // console.log(response.data);
       setBoardList(response.data);
     })
-    .catch(e=>console.log(e))
+    .catch(e=>{
+      console.log("오류발생")
+      console.log(e.response)  // 오류발생시 응답 정보
+      console.dir(e)
+    })
   }
 
   return (

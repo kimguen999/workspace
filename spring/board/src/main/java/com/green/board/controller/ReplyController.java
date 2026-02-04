@@ -2,10 +2,7 @@ package com.green.board.controller;
 
 import com.green.board.dto.ReplyDTO;
 import com.green.board.service.ReplyService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,20 @@ public class ReplyController {
 //   데이터를 담는 통이 없으면 null
 //   통은 있지만 데이터가 없으면 길이 0
     return list;
+  }
+
+  // 댓글 등록 api
+  // (post) localhost:8080/replies/2
+  @PostMapping("")
+  public void insertReply(@RequestBody ReplyDTO replyDTO){
+    replyService.insertReply(replyDTO);
+  }
+
+  // 댓글 삭제 api
+  // (delete) localhost:8080/replies/3
+  @DeleteMapping("/{replyNum}")
+  public int deleteReply(@PathVariable ("replyNum") int replyNum){
+    return replyService.deleteReply(replyNum);
   }
 
 }

@@ -19,4 +19,17 @@ public class ReplyService {
     return replyMapper.selectReplyList(boardNum);
   }
 
+  // 댓글 등록 기능
+  public void insertReply(ReplyDTO replyDTO){
+    replyMapper.insertReply(replyDTO);
+  }
+
+  // 댓글 삭제 기능
+  public int deleteReply(int replyNum){
+    return replyMapper.deleteReply(replyNum);
+  }
+
+
+
+
 }

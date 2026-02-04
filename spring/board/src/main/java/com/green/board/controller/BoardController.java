@@ -3,7 +3,10 @@ package com.green.board.controller;
 import com.green.board.dto.BoardDTO;
 import com.green.board.dto.SearchDTO;
 import com.green.board.service.BoardService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,6 +21,8 @@ import java.util.List;
 //2. 쿼리 실행 기능 메서드를 호출하기 위해
 //2-1) Service 클래스의 객체를 맴버변수로 선언
 //2-2) 생성자 의존성 주입 문법을 사용해서 Service 클래스의 객체를 생성
+
+@Slf4j // 로그를 남길수 있음
 @RestController
 @RequestMapping("/boards")
 public class BoardController {
@@ -30,20 +35,40 @@ public class BoardController {
   //게시글 목록 조회 api
   //(GET) localhost:8080/boards
   @GetMapping("")
-  public List<BoardDTO> getBoardList(SearchDTO searchDTO){
+  public ResponseEntity<?> getBoardList(SearchDTO searchDTO){
     // get이라서 @RequestBody 필요없이 데이터 전달받으면됨
-    System.out.println(searchDTO);
-    List<BoardDTO> list = boardService.getList(searchDTO);
-    return list;
+
+    try { // 본문내용, try{본문}, 소괄호없음
+      System.out.println(searchDTO);
+      log.info("게시글 목록 조회 기능 실행 중~");
+      List<BoardDTO> list = boardService.getList(searchDTO);
+      return ResponseEntity.status(HttpStatus.OK).body(list);
+    } catch (Exception e){
+      // try에서 오류 발생하면 catch 실행, catch (Exception e){}
+      log.error("게시글 목록 조회 중 오류발생");
+      e.printStackTrace(); // 오류 발생 위치 알려줌
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("오류오류");
+    }
+
   }
 
   //게시글 등록 api
   // (POST) localhost:8080/boards
   @PostMapping("")
-  public int regBoard(@RequestBody BoardDTO boardDTO){
-    System.out.println(boardDTO);
-    int result = boardService.regBoard(boardDTO);
-    return result;
+  public ResponseEntity<Integer> regBoard(@RequestBody BoardDTO boardDTO){
+    try {
+      System.out.println(boardDTO);
+      int result = boardService.regBoard(boardDTO);
+      return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    } catch (Exception e){
+      log.error("게시글 등록 중 오류");
+//      e.fillInStackTrace();  오류 상세
+        e.printStackTrace();  // 오류 출력
+      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+
+
   }
 
   //게시글 상세 조회 + 조회수 증가 api

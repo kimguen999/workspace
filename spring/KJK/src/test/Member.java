@@ -51,6 +51,16 @@ public class Member {
     return age;
   }
 
+  public boolean isLogin(String id, String pw){
+    // return this.id.equals(id) && this.pw.equals(pw);
+    if (this.id.equals(id) && this.pw.equals(pw)){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   public void showInfo() {
     System.out.println("아이디 : " + id);
     System.out.println("비밀번호 : " + pw);

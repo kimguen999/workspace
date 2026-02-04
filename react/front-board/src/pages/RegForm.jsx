@@ -32,7 +32,7 @@ const RegForm = () => {
 
     axios.post('http://localhost:8080/boards', boardData)
     .then(response => {
-      if(response.data > 0){
+      if(response.status === 201){
         alert('새로운 게시글이 등록되었습니다');
         nav('/');
       }

@@ -72,9 +72,7 @@ const BoardDetail = () => {
       <div>
         {/* <button type='button' onClick={e => {nav(-1)}}>목록가기1</button> */}
         
-        <button type='button' onClick={e => {nav('/')}}>목록가기2</button>
-
-
+        <button type='button' onClick={e => {nav('/')}}>목록가기</button>
 
         <button 
           type='button'
