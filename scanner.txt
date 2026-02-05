@@ -1,0 +1,5 @@
+스캐너
+Scanner sc = new Scanner(System.in);
+
+리액트
+npm create vite@latest

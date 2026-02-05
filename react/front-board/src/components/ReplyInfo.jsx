@@ -22,7 +22,6 @@ const ReplyInfo = ({boardNum}) => {
   const getReplyList=async()=>{
     const response = await serchReply(boardNum)
     setReplyList(response.data);
-    
   }
 
   // 댓글 등록 저장 + 스프링으로 전달할 데이터를 저장할 state 변수
@@ -69,10 +68,7 @@ const ReplyInfo = ({boardNum}) => {
       const response = await delReply(replyNum);
         alert('댓글이 삭제되었습니다.');
         getReplyList();
-      
-      
     }
-    
   }
 
 

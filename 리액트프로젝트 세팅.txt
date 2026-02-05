@@ -1,0 +1,30 @@
+react 프로젝트 생성 명령어 : npm create vite@latest
+생성한 프로젝트에 라이브러리 설치 명령어 : npm i
+프로젝트 실행 명령어 :  npm run dev   ->   o + enter
+프로젝트 재시작 명령어 : r + enter
+프로젝트 종료 명령어 : q + enter
+
+
+
+라이브러리 설치
+npm install axios
+npm install react-router-dom
+npm install dayjs      사용법 : dayjs(날짜데이터).format(날짜형식);
+npm install react-daum-postcode    (script : //t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js)
+npm install @reduxjs/toolkit react-redux
+npm install install jwt-decode
+
+spring과 데이터 통신을 위해 리액트 프로젝트 내의 vite.config.js 파일의 내용을 공유폴더에 있는 vite.config.js 내용으로 변경
+
+
+에디터 - 파일인코딩 - 전부 UTF-8로, ASCII 체크
+빌드실행배포 - 빌드도구 - Gradle - Gradle(디폴트)를 인텔리J로, 17.0.17로
+빌드실행배포 - 컴파일러 - 프로젝트자동빌드 체크
+고급설정 - 컴파일러 - automake시작허용 체크
+메인 run돌리고 위에 현재파일 - 구성편집에서 오라클17.0.17로 바꾸기
+application_properties.txt에 윗부분 resources에 application.properties에 넣기
+application_properties.txt에 중간부분 build.gradle에 dependencies에 넣기
+log4jdbc.log4j2.properties, logback.xml 파일 2개 resources에 넣기
+mapper.xml을 resources안에 mapper폴더 만들고 붙여넣기(넣을때 이름바꾸기 aaa-mapper)
+고급설정 - 컴파일러 - automake시작허용 체크
+메인 run돌리고 위에 현재파일 - 구성편집에서 오라클17.0.17로 바꾸기
