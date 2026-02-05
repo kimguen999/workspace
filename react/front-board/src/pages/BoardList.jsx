@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './BoardList.module.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { getList } from '../api/boardApi';
 
 //컴포넌트가 마운트될떄 게시글 목록을 spring에서 조회한 후 화면에 띄워준다
 const BoardList = () => {
@@ -17,13 +18,9 @@ const BoardList = () => {
   });
 
   // 입력값 저장 함수
-  const handleSearchData = e=>{
-    setSearchData({
-      ...searchData,
-      [e.target.name] : e.target.value
-    })
-  }
-
+  const handleSearchData = e=>
+    setSearchData(prev=>({...priv, [e.target.name] : e.target.value}));
+  
   
   console.log(boardList);
   //마운트 시 게시글 목록 조회
@@ -33,18 +30,9 @@ const BoardList = () => {
   
   
   // 검색버튼 실행 + 게시글 목록 조회 함수
-  const getBoardList = ()=>{
-    axios.get(`http://localhost:8080/boards`, {params : searchData})
-    .then(response=>{
-      // console.log(response);
-      // console.log(response.data);
-      setBoardList(response.data);
-    })
-    .catch(e=>{
-      console.log("오류발생")
-      console.log(e.response)  // 오류발생시 응답 정보
-      console.dir(e)
-    })
+  const getBoardList = async()=>{
+    const response = await getList(searchData);
+    setBoardList(response.data);
   }
 
   return (

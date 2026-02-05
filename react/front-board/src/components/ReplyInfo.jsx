@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import BoardList from '../pages/BoardList';
 import { useParams } from 'react-router-dom';
+import { delReply, postReply, serchReply } from '../api/replyApi';
 
 // {boardNum} : 구조분해할당
 const ReplyInfo = ({boardNum}) => {
@@ -18,14 +19,10 @@ const ReplyInfo = ({boardNum}) => {
 
 
   // 댓글 목록 조회 함수
-  const getReplyList=()=>{
-    axios.get(`http://localhost:8080/replies/${boardNum}`)
-    // 구조분해할당으로 인해 {params.boardNum} 쓸필요 없이 {boardNum}만 쓰면됨
-    .then(response => {
-      console.log(response.data);
-      setReplyList(response.data);
-    })
-    .catch(e=>console.log(e))
+  const getReplyList=async()=>{
+    const response = await serchReply(boardNum)
+    setReplyList(response.data);
+    
   }
 
   // 댓글 등록 저장 + 스프링으로 전달할 데이터를 저장할 state 변수
@@ -46,37 +43,34 @@ const ReplyInfo = ({boardNum}) => {
   }
 
   //댓글등록 api
-  const regReply = ()=>{
+  const regReply = async ()=>{
     // writer or content 내용이 없으면
     if(replyData.writer==='' || replyData.content===''){
       alert('작성자 및 내용은 필수입력입니다.')
       return;  // 아무것도 없는 return은 그즉시 함수를 종료
     }
-    axios.post(`http://localhost:8080/replies`,replyData)
-    .then(res=>{
-      getReplyList() //댓글 다시 조회해서 바로 뜨게끔
-      setReplyData({
-        ...regReply,
-        writer : '',
-        content : ''
-      })
+    await postReply(replyData);
+    alert('댓글이 등록되었습니다.')
+    setReplyData({
+      ...replyData,
+      writer : '',
+      content : ''
+    })
+    getReplyList(); // 등록하자마자 댓글 목록 조회
       // replyData.writer=''
       // replyData.content=''
-    })
-    .catch(e=>console.log(e))
   }
+  
 
   // 댓글 삭제 함수
-  const deleteReply = (replyNum)=>{
+  const deleteReply = async (replyNum)=>{
     const result = confirm('정말 삭제하시겠습니까?');
     if (result){
-      axios.delete(`http://localhost:8080/replies/${replyNum}`)
-      .then(res=>{
-        console.log(res.data);
+      const response = await delReply(replyNum);
         alert('댓글이 삭제되었습니다.');
         getReplyList();
-      })
-      .catch(e=>console.log(e))
+      
+      
     }
     
   }
