@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.item_backend.mapper.ItemMapper">
+
+    <resultMap id="itemDTO" type="com.green.item_backend.dto.ItemDTO">
+        <id column="ITEM_NUM"   property="itemNum"/>
+        <result column="ITEM_NAME"  property="itemName"/>
+        <result column="ITEM_PRICE" property="itemPrice"/>
+        <result column="ITEM_OWNER" property="itemOwner"/>
+        <result column="ITEM_INTRO" property="itemIntro"/>
+        <result column="ITEM_DATE"  property="itemDate"/>
+    </resultMap>
+
+    <!--전체 조회 쿼리-->
+    <select id="itemInfo" resultMap="itemDTO">
+        <!--SELECT * FROM ITEM_INFO WHERE 조건-->
+        SELECT
+        ITEM_NUM
+        , ITEM_NAME
+        , ITEM_PRICE
+        , ITEM_OWNER
+        , ITEM_DATE
+        FROM
+        ITEM_INFO
+    </select>
+
+
+
+</mapper>
