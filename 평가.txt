@@ -1,0 +1,78 @@
+스프링 : 
+
+BOARDDTO
+BOARDCONTROLLER
+
+EMP
+EMPCONTROLLER
+
+ITEMDTO
+ITEMCONTROLLER
+
+
+
+
+
+
+데이터베이스 : 
+
+연월일 PDF 4번 7쪽
+
+
+
+
+
+
+
+
+자바 : 
+
+1. 숫자 3개 큰수부터 나열 
+Condition -> Test1_10
+
+2. 로또
+Array -> Test10_5
+
+3. 박수짝
+Condition -> Test2_3_1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

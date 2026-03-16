@@ -76,7 +76,10 @@ FROM EMP E INNER JOIN  DEPT D
 ON E.DEPTNO = D.DEPTNO; 
 WHERE JOB != '사원'
 
-외래키(FK) : 컬럼명 자료형 REFERENCES 참조테이블명(참조컬럼명) ON DELETE CASCADE
+외래키(FK) : 컬럼명 자료형 REFERENCES 참조테이블명 (참조컬럼명) ON DELETE CASCADE
+
+WHERE 컬럼 = A OR 컬럼 = B
+=== WHERE 컬럼 IN(A,B)
 
 
 

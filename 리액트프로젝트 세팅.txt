@@ -22,6 +22,7 @@ spring과 데이터 통신을 위해 리액트 프로젝트 내의 vite.config.j
 빌드실행배포 - 컴파일러 - 프로젝트자동빌드 체크
 고급설정 - 컴파일러 - automake시작허용 체크
 메인 run돌리고 위에 현재파일 - 구성편집에서 오라클17.0.17로 바꾸기
+
 application_properties.txt에 윗부분 resources에 application.properties에 넣기
 application_properties.txt에 중간부분 build.gradle에 dependencies에 넣기
 log4jdbc.log4j2.properties, logback.xml 파일 2개 resources에 넣기
