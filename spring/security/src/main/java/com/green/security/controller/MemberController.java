@@ -1,0 +1,4 @@
+package com.green.security.controller;
+
+public class MemberController {
+}

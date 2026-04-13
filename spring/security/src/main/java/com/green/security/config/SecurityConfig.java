@@ -1,0 +1,4 @@
+package com.green.security.config;
+
+public class SecurityConfig {
+}
