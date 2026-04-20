@@ -1,5 +1,5 @@
-import { Keyboard, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { Keyboard, StyleSheet, Text, TextInput, TouchableWithoutFeedback } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CartList from '../components/CartList'
 import { dummy_data } from '../data/dummy'
@@ -60,10 +60,15 @@ const HomeScreen = () => {
       accessible={false}
     >
       <SafeAreaView
+        
         style={styles.container}
       >
+        <Text 
+          style={styles.headText}
+        >To do List</Text>
         <TextInput 
           style={styles.input}
+          placeholder=' + Add a Task'
           value={newItem}
           onChangeText={text=>setNewItem(text)}
           // 터치 키보드의 확인 버튼 눌렀을때 실행 이벤트
@@ -88,6 +93,14 @@ const styles = StyleSheet.create({
   container : {
     flex : 1,
     borderWidth : 1
+  },
+  headText : {
+    width : '90%',
+    // borderWidth : 1,
+    marginHorizontal : 'auto',
+    fontSize : 30,
+    fontWeight : 'bold',
+    marginTop : 20
   },
   input : {
     borderWidth : 1,

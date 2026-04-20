@@ -1,0 +1,51 @@
+
+
+# VIEW  (가상테이블)
+
+# VIEW - 조회용으로 많이 사용
+# INSERT,DELETE, UPDATE, 조건에 따라 가능하나, 거의 안씀
+# 1. 민감한 데이터를 감추기 위해
+# 2. 복잡한 조회 쿼리를 편하게 사용하기 위해
+# 3. 
+
+SELECT * FROM EMP ;
+
+CREATE OR REPLACE VIEW V_EMP
+AS
+SELECT EMPNO, ENAME, JOB
+FROM EMP
+WHERE JOB != '사장';
+
+SELECT * FROM V_EMP;
+
+# 사원번호, 사원명, 부서번호, 부서명
+SELECT EMPNO, ENAME, E.DEPTNO, DNAME
+FROM EMP E INNER JOIN DEPT D
+ON E.DEPTNO = D.DEPTNO ;
+
+# 이미 조인된 데이터를 VIEW로 생성
+CREATE OR REPLACE VIEW V_EMP_INFO
+AS
+SELECT EMPNO, ENAME, JOB, HIREDATE, SAL, COMM, E.DEPTNO, DNAME, LOC
+FROM EMP E INNER JOIN DEPT D
+ON E.DEPTNO = D.DEPTNO;
+
+SELECT * FROM V_EMP_INFO;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

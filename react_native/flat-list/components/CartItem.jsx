@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Feather from '@expo/vector-icons/Feather';
@@ -32,7 +32,23 @@ const CartItem = ({item, onUpdate, onDelete}) => {
 
   // 삭제 버튼 함수
   const handleDelete = ()=>{
-    onDelete(item.id)
+    Alert.alert(
+      '삭제 확인',
+      '정말 삭제하시겠습니까?',
+      [
+        {
+          text : '삭제',
+          style : 'destructive',
+          onPress : ()=>{onDelete(item.id)}
+          
+        },
+        {
+          text:'취소',
+          style:'cancle',
+        },
+      ]
+    )
+    
   }
 
 
@@ -69,23 +85,23 @@ const CartItem = ({item, onUpdate, onDelete}) => {
             onPress={()=>{setIsEditing(true)}}
             style={styles.iconContainer1}
           >
-            <AntDesign 
-              name="form" 
-              size={30} 
-              color="#41431B" 
+            <AntDesign
+              name="form"
+              size={30}
+              color="#41431B"
               style={styles.icon}
             />
           </Pressable>
 
           {/* 삭제버튼 */}
           <Pressable
-            onPress={()=>{onDelete(item.id)}}
+            onPress={()=>{handleDelete()}}
             style={styles.iconContainer1}
           >
-          <Feather 
-            name="x" 
-            size={30} 
-            color="#8E977D" 
+          <Feather
+            name="x"
+            size={30}
+            color="#8E977D"
             style={styles.icon}
           />
           </Pressable>
