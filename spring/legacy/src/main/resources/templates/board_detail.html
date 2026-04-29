@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  게시글 상세페이지<br>
+  글번호 : [[${board.boardNum}]]<br>
+  제목 : [[${board.title}]]<br>
+  내용 : [[${board.content}]]<br>
+  작성자 : [[${board.writer}]]<br>
+  작성일 : [[${board.regDate}]]<br>
+
+  
+  <button 
+    type="button" th:onclick="deleteBoard([[${board.boardNum}]])"
+  >삭제</button>
+
+  <script src="/js/board_detail.js"></script>
+
+</body>
+</html>
