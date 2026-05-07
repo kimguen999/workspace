@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace에는 xml파일과 연결할 Mapper interface 파일명을 패키지를 포함하여 적어주세요 -->
+<mapper namespace="com.green.legacy.stu_manage.mapper.StuMapper">
+
+
+
+    <resultMap id="Class" type="com.green.legacy.stu_manage.dto.ClassDTO">
+        <id     property="classNum"  column="CLASS_NUM"/>
+        <result property="className" column="CLASS_NAME"/>
+    </resultMap>
+
+    <resultMap id="Student" type="com.green.legacy.stu_manage.dto.StuDTO">
+        <id     property="stuNum"  column="STU_NUM"/>
+        <result property="stuName" column="STU_NAME"/>
+        <result property="stuYear" column="STU_YEAR"/>
+        <result property="classNum" column="CLASS_NUM"/>
+        <association property="classDTO" resultMap="Class"/>
+    </resultMap>
+
+    <!--반조회-->
+    <select id="selectClassList" resultMap="Class">
+        SELECT
+            CLASS_NUM
+            , CLASS_NAME
+        FROM
+            ASYNC_CLASS
+        ORDER BY
+            CLASS_NUM DESC
+    </select>
+
+    <!--전체 학생 조회-->
+    <select id="selectStudentList" resultMap="Student">
+        SELECT
+            S.STU_NUM
+            , S.STU_NAME
+            , S.STU_YEAR
+            , S.CLASS_NUM
+            , C.CLASS_NAME
+        FROM
+            ASYNC_STUDENT S
+        JOIN
+            ASYNC_CLASS C
+        ON
+            S.CLASS_NUM = C.CLASS_NUM
+        <if test="classNum != 0">
+            WHERE
+                S.CLASS_NUM=#{classNum}
+        </if>
+
+        ORDER BY
+            STU_NUM
+    </select>
+
+<!--    &lt;!&ndash;반별 학생 조회&ndash;&gt;-->
+<!--    <select id="selectStudentClassList" resultMap="Student">-->
+<!--        SELECT-->
+<!--            S.STU_NUM-->
+<!--            , S.STU_NAME-->
+<!--            , S.STU_YEAR-->
+<!--            , S.CLASS_NUM-->
+<!--            , C.CLASS_NAME-->
+<!--        FROM-->
+<!--            ASYNC_STUDENT S-->
+<!--        JOIN-->
+<!--            ASYNC_CLASS C-->
+<!--        ON-->
+<!--            S.CLASS_NUM = C.CLASS_NUM-->
+<!--        WHERE S.CLASS_NUM = #{classNum}-->
+<!--        ORDER BY-->
+<!--            STU_NUM-->
+
+<!--    </select>-->
+
+
+    <resultMap id="Score" type="com.green.legacy.stu_manage.dto.ScoreDTO">
+        <id     property="scoreNum"  column="SCORE_NUM"/>
+        <result property="korScore" column="KOR_SCORE"/>
+        <result property="engScore" column="ENG_SCORE"/>
+        <result property="mathScore" column="MATH_SCORE"/>
+        <association property="stuDTO" resultMap="student"/>
+    </resultMap>
+
+
+    <select id="selectScore" resultMap="Score">
+        SELECT
+            SCORE_NUM
+            , KOR_SCORE
+            , ENG_SCORE
+            , MATH_SCORE
+            , SC.STU_NUM
+        FROM
+            ASYNC_SCORE SC
+        JOIN
+            ASYNC_STUDENT S
+        ON
+            SC.STU_NUM = S.STU_NUM
+        WHERE
+            SC.STU_NUM = #{stuNum}
+    </select>
+
+
+</mapper>
+

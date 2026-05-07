@@ -1,6 +1,7 @@
 package com.green.legacy.mapper;
 
 import com.green.legacy.dto.BoardDTO;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,5 +17,8 @@ public interface BoardMapper {
 
   // 삭제 쿼리 실행 메서드
   void deleteBoard(int boardNum);
+
+  // 수정 쿼리 실행 메서드
+  void updateBoard(BoardDTO boardDTO);
 
 }

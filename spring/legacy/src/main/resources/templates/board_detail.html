@@ -13,10 +13,65 @@
   작성자 : [[${board.writer}]]<br>
   작성일 : [[${board.regDate}]]<br>
 
-  
+
   <button 
-    type="button" th:onclick="deleteBoard([[${board.boardNum}]])"
+    type="button"
+    onclick="location.href='/boards/getList'"
+  >글목록(1번방법)</button>
+
+  <button
+  type="button"
+  onclick="history.back(-1)"
+  >글목록(2번방법 전단계로가기)</button>
+  <!-- history.back을 쓰면 이전페이지 복원 형식이라서 새로 추가된 글은 뜨지 않음. -->
+  
+
+  <!-- 다이렉트방식 -->
+  <button 
+    type="button"
+    th:onclick="|location.href='@{/boards/update-form(boardNum=${board.boardNum})}'|"
+  >수정</button>
+
+  <!-- 함수방식 -->
+  <button 
+    type="button" 
+    th:onclick="deleteBoard([[${board.boardNum}]])"
   >삭제</button>
+
+
+  <!-- 댓글 -->
+
+  <form th:action="@{/reply/insert}" method="post">
+    <div>
+      <input type="hidden" name="boardNum" th:value="${board.boardNum}">
+      <input type="text" name="replyWriter" placeholder="작성자">
+      <input type="text" name="replyContent" style="width: 300px;"  placeholder="댓글 내용 입력">
+      <button type="submit">댓글등록</button>
+      
+    </div>
+  </form>
+
+  <div>
+    <th:block 
+      th:if="${#lists.isEmpty(replyList)}"
+    >
+      <p>댓글이 없습니다</p>
+    </th:block>
+    <th:block 
+      th:unless="${#lists.isEmpty(replyList)}"
+    >
+      <div th:each="reply : ${replyList}">
+        <p>[[${reply.replyWriter}]]</p>
+        <p>[[${reply.regDate}]]</p>
+        <p>[[${reply.replyContent}]]</p>
+        <button type="button"
+          th:onclick="deleteReply([[${reply.replyNum}]], [[${board.boardNum}]])"
+        >댓글 삭제</button>
+      </div>
+    </th:block>
+  </div>
+
+
 
   <script src="/js/board_detail.js"></script>
 

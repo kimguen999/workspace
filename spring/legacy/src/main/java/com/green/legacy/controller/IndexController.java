@@ -12,7 +12,8 @@ public class IndexController {
   @RequestMapping("/")
   public String start(){
     // 프로젝트 시작시 세팅되는 설정, 보안코드 작성
-    return "redirect:/boards/getList";
+//    return "redirect:/boards/getList";
+    return "redirect:/test/t1";
   }
 
 }

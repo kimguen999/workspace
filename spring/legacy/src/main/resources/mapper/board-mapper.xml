@@ -57,10 +57,21 @@
 
 
     <delete id="deleteBoard">
-        DELETE FROM LEGACY_BOARD
+        DELETE FROM
+            LEGACY_BOARD
         WHERE
             BOARD_NUM = #{boardNum}
     </delete>
+
+    <!--수정-->
+    <update id="updateBoard">
+        UPDATE LEGACY_BOARD
+        SET
+            TITLE = #{title}
+            , CONTENT = #{content}
+        WHERE
+            BOARD_NUM = #{boardNum}
+    </update>
 
 </mapper>
 

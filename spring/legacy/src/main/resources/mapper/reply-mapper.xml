@@ -14,6 +14,44 @@
         <result property="userName"     column="USER_NAME"/>
     </resultMap>
 
+    <!--댓글 목록 조회 쿼리-->
+    <select id="selectReplyList" resultMap="Reply">
+        SELECT
+            REPLY_NUM
+            , REPLY_CONTENT
+            , REPLY_WRITER
+            , REG_DATE
+        FROM
+            LEGACY_REPLY
+        WHERE
+            BOARD_NUM = #{boardNum}
+        ORDER BY
+            REG_DATE DESC
+
+    </select>
+
+    <!--댓글 등록 쿼리-->
+    <insert id="insertReply">
+        INSERT INTO LEGACY_REPLY(
+            REPLY_WRITER
+            , REPLY_CONTENT
+            , REG_DATE
+            , BOARD_NUM
+        ) VALUES (
+            #{replyWriter}
+            , #{replyContent}
+            , SYSDATE()
+            , #{boardNum}
+        )
+    </insert>
+
+    <!--댓글 삭제 쿼리-->
+    <delete id="deleteReply">
+        DELETE FROM
+            LEGACY_REPLY
+        WHERE
+            REPLY_NUM = #{replyNum}
+    </delete>
 
 
 </mapper>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <select 
+            onchange="asyncGetList()"       
+            id="classSelector"
+        >
+
+            <option value="0">전체</option>
+            <th:block th:each="cls : ${classList}">
+                <option 
+                    th:value="${cls.classNum}"
+                    th:selected="${cls.classNum==selectedClassNum}"
+                >[[${cls.className}]]</option>
+
+            </th:block>
+        </select>
+    </div>
+    <div>
+        <table border="1" id="list-table">
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>학번</td>
+                    <td>이름</td>
+                    <td>학년</td>
+                    <td>학급번호</td>
+                    <td>학급명</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="stu, state : ${studentList}">
+                    <td>[[${#lists.size(studentList) - state.index}]]</td>
+                    <td>[[${stu.stuNum}]]</td>
+                    <td>
+                        <a
+                            th:href="@{/stu/score(stuNum=${stu.stuNum})}"
+                        >[[${stu.stuName}]]</a>
+                    </td>
+                    <td>[[${stu.stuYear}]]</td>
+                    <td>[[${stu.classNum}]]</td>
+                    <td>[[${stu.classDTO.className}]]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- axios 문법 사용을 위해 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/stu_manage.js"></script>
+</body>
+</html>

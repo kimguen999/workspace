@@ -2,11 +2,14 @@ package com.green.legacy.controller;
 
 
 import com.green.legacy.dto.BoardDTO;
+import com.green.legacy.dto.ReplyDTO;
 import com.green.legacy.service.BoardService;
+import com.green.legacy.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 public class BoardController {
   private final BoardService boardService;
-
+  private final ReplyService replyService;
 
   // @GetMapping("/getList") 예전 방식은 주체와 목적을 같이 사용
   // @GetMapping("/board") 요즘 방식은 주체만 씀
@@ -79,16 +82,20 @@ public class BoardController {
     return "";
   }
 
-  // 상세페이지로 이동
+  // 상세페이지 조회 + 댓글목록조회
   // localhost:8080/boards/detail/1
   @RequestMapping("/detail")
   public String selectDetail(@RequestParam(name = "boardNum") int boardNum, Model model){
     System.out.println("boardNum : "+boardNum);
+    // 상세 정보
     model.addAttribute("board", boardService.selectDetail(boardNum));
+    // 댓글 정보
+    model.addAttribute("replyList", replyService.selectReplyList(boardNum));
+
     return "board_detail";
   }
 
-
+  // 상세 삭제
   @RequestMapping("/delete")
   public String delete(@RequestParam(name="boardNum") int boardNum){
     System.out.println("삭제할글번호 : "+boardNum);
@@ -96,5 +103,36 @@ public class BoardController {
     return "delete_result";
 
   }
+
+  // 수정페이지 이동
+  @RequestMapping("/update-form")
+  public String goUpdate(@RequestParam(name="boardNum") int boardNum, Model model){
+    System.out.println("boardNum : "+boardNum);
+    // 게시글 상세 정보 조회
+    BoardDTO boardDTO = boardService.selectDetail(boardNum);
+    // 상세 정보를 html에 전달
+    model.addAttribute("board", boardDTO);
+    return "update_form";
+  }
+
+  // 수정 & 이후 상세로 이동
+  @RequestMapping("/update")
+  public String update(@ModelAttribute BoardDTO boardDTO){
+    System.out.println("boardDTO : "+boardDTO);
+    // 수정 쿼리 실행
+    boardService.updateBoard(boardDTO);
+
+    return "redirect:/boards/detail?boardNum="+boardDTO.getBoardNum();
+  }
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div>
+    <table border="1">
+      <thead>
+        <tr>
+          <td>학생명</td>
+          <td>국어점수</td>
+          <td>영어점수</td>
+          <td>수학점수</td>
+          <td>총점</td>
+          <td>평균</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[[${score.stuName}]]</td>
+          <td>
+            <input 
+              type="number"
+              id="korean"
+              th:value="${
+                score.korean != null 
+                ?
+                score.korean
+                :
+                0
+              }"
+            >
+          </td>
+          <td>
+            <input 
+              type="number"
+              id="english"
+              th:value="${
+                score.english != null 
+                ?
+                score.english
+                :
+                0
+              }"
+            >
+          </td>
+          <td>
+            <input 
+              type="number"
+              id="math"
+              th:value="${
+                score.math != null 
+                ?
+                score.math
+                :
+                0
+              }"
+            >
+          </td>
+          <td>
+            [[${score.korean + score.english + score.math}]]
+          </td>
+          <td>[[${
+            (score.korean + score.english + score.math) == 0
+            ?
+            "0"
+            :
+            (score.korean + score.english + score.math) / 3
+          }]]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <button 
+      type="button"
+      onclick="updateScore()"
+    >수정</button>
+  </div>
+
+</body>
+</html>

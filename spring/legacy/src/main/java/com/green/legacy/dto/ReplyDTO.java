@@ -13,6 +13,7 @@ public class ReplyDTO {
   private String replyContent;
   private String replyWriter;
   private LocalDateTime regDate;
+  private int boardNum;
 
   // JOIN용 필드
   private String userName;
