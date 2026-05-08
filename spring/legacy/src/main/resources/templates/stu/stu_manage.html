@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/stu_manage.css">
 </head>
 <body>
     <div>
@@ -38,9 +39,11 @@
                     <td>[[${#lists.size(studentList) - state.index}]]</td>
                     <td>[[${stu.stuNum}]]</td>
                     <td>
-                        <a
-                            th:href="@{/stu/score(stuNum=${stu.stuNum})}"
-                        >[[${stu.stuName}]]</a>
+                        <div 
+                            th:onclick="|getScoreInfo(${stu.stuNum})|" 
+                            style="cursor:pointer;" 
+                        >[[${stu.stuName}]]
+                        </div>
                     </td>
                     <td>[[${stu.stuYear}]]</td>
                     <td>[[${stu.classNum}]]</td>
@@ -48,6 +51,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div id="score-div">
+
     </div>
     <!-- axios 문법 사용을 위해 추가 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

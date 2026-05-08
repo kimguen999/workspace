@@ -21,5 +21,8 @@ public interface StuMapper {
   // 학생별 점수 조회
   ScoreDTO selectScore(int stuNum);
 
+  // 점수 등록 or 업데이트
+  void saveScore(ScoreDTO scoreDTO);
+
 
 }

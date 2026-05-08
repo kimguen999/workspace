@@ -80,7 +80,10 @@
         <result property="korScore" column="KOR_SCORE"/>
         <result property="engScore" column="ENG_SCORE"/>
         <result property="mathScore" column="MATH_SCORE"/>
-        <association property="stuDTO" resultMap="student"/>
+        <result property="stuNum" column="STU_NUM"/>
+
+        <association property="stuDTO" resultMap="Student"/>
+
     </resultMap>
 
 
@@ -90,16 +93,49 @@
             , KOR_SCORE
             , ENG_SCORE
             , MATH_SCORE
-            , SC.STU_NUM
+            , S.STU_NUM
+            , S.STU_NAME
+            , S.STU_YEAR
+            , S.CLASS_NUM
         FROM
-            ASYNC_SCORE SC
-        JOIN
             ASYNC_STUDENT S
+        LEFT JOIN
+            ASYNC_SCORE SC
         ON
             SC.STU_NUM = S.STU_NUM
         WHERE
-            SC.STU_NUM = #{stuNum}
+            S.STU_NUM = #{stuNum}
     </select>
+
+
+    <!--
+    INSERT OR UPDATE
+    SELECT 해봐서 값이 없을땐 INSERT 있을땐 UPDATE
+    -->
+    <!--점수 등록 or 업데이트-->
+    <insert id="saveScore">
+        INSERT INTO ASYNC_SCORE (
+            STU_NUM
+            , KOR_SCORE
+            , ENG_SCORE
+            , MATH_SCORE
+        ) VALUES (
+            #{stuNum}
+            , #{korScore}
+            , #{engScore}
+            , #{mathScore}
+        )
+        ON DUPLICATE KEY
+        UPDATE
+            KOR_SCORE = #{korScore}
+            , ENG_SCORE = #{engScore}
+            , MATH_SCORE = #{mathScore}
+
+    </insert>
+
+
+
+
 
 
 </mapper>

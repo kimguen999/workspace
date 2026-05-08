@@ -35,4 +35,14 @@ public class StuService {
     return stuMapper.selectScore(stuNum);
   }
 
+
+
+  // 점수 등록 or 업데이트 기능
+  public void saveScore(ScoreDTO scoreDTO){
+    stuMapper.saveScore(scoreDTO);
+
+  }
+
+
+
 }

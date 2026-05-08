@@ -1,0 +1,7 @@
+.score-input {
+    width: 40px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}

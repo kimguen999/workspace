@@ -8,6 +8,7 @@ import com.green.legacy.stu_manage.service.StuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,11 +51,18 @@ public class StuController {
   }
 
   // 학생별 점수 조회
+  @ResponseBody
   @RequestMapping("/score")
-  public String selectScore(@RequestParam(name = "stuNum") int stuNum, Model model){
-    ScoreDTO scoreDTO = stuService.selectScore(stuNum);
-    model.addAttribute("score", scoreDTO);
-    return "stu/score";
+  public ScoreDTO selectScore(@RequestParam(name = "stuNum") int stuNum){
+    return stuService.selectScore(stuNum);
   }
+
+  // 점수 등록 or 업데이트
+  @ResponseBody
+  @RequestMapping("/score-save")
+  public void saveScore(@RequestBody ScoreDTO scoreDTO){
+    stuService.saveScore(scoreDTO);
+  }
+
 
 }
