@@ -1,3 +1,5 @@
+package generic;
+
 class Plastic{}
 
 

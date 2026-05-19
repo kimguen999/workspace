@@ -1,7 +1,7 @@
-
+package generic;
 // Generic 문법 사용
 //  클래스를 만드는 시점에서 자료형을 안정하겠다.
-// GBox<T>에서 <T> : 타입 매개변수 (Type Parameter)
+// generic.GBox<T>에서 <T> : 타입 매개변수 (Type Parameter)
 // 타입인자 : 타입 매개변수에 전달된 자료형
 
 // 매개변수 : 공간 개념

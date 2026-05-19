@@ -1,3 +1,5 @@
+package generic;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +23,8 @@ public class GBoxTest {
     GBox2<SmartPhone> g2 = new GBox2<>();
     // 상속한거만 들어올수있음.
 
-//    GBox2<Orange> g3 = new GBox2<>();
-//    GBox2<Apple> g4 = new GBox2<>();
+//    generic.GBox2<generic.Orange> g3 = new generic.GBox2<>();
+//    generic.GBox2<generic.Apple> g4 = new generic.GBox2<>();
 //
 
     GBox3 box3 = new GBox3();

@@ -1,9 +1,6 @@
-
+package generic;
 // Generic : 자료형을 클래스나 메서드 정의 단계에서 정하지 않고
 //          객체 생성 시 자료형을 지정하는 코드 작성 문법
-
-
-import java.security.PublicKey;
 
 
 // Generic 이전 문법
@@ -33,7 +30,7 @@ public class Box {
   //        스마트폰 주세요 했는데 그냥 폰주면 안맞음.
 
 
-//  public void set(Orange orange){
+//  public void set(generic.Orange orange){
 //    this.orange = orange;
 //  }
 
@@ -41,7 +38,7 @@ public class Box {
     this.obj = obj;
   }
 
-//  public Orange get(){
+//  public generic.Orange get(){
 //    return orange;
 //  }
 
@@ -54,12 +51,12 @@ public class Box {
 
 class Orange{
   public String say(){
-    return "I am an Orange";
+    return "I am an generic.Orange";
   }
 }
 
 class Apple{
   public String say(){
-    return "I am an Apple";
+    return "I am an generic.Apple";
   }
 }
